@@ -1,10 +1,14 @@
 import { GlobalStyle } from "./styles/global";
+import {ChakraProvider} from '@chakra-ui/react'
+
 
 export function App() {
+
   return (
-    <div className="App">
-     <GlobalStyle />
-    </div>
+    <ChakraProvider>
+      <GlobalStyle />
+      <h1>ola mundo</h1>
+    </ChakraProvider>
   );
 }
 
