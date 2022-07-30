@@ -1,6 +1,7 @@
 import { GlobalStyle } from "./styles/global";
 import {ChakraProvider} from '@chakra-ui/react'
 import { Header } from "./components/Header";
+import { Dashboard } from "./components/Dashboard";
 
 
 export function App() {
@@ -8,6 +9,7 @@ export function App() {
   return (
     <ChakraProvider>
       <Header />
+      <Dashboard />
       <GlobalStyle />
     </ChakraProvider>
   );
