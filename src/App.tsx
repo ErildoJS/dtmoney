@@ -3,7 +3,7 @@ import {ChakraProvider} from '@chakra-ui/react'
 import { Header } from "./components/Header";
 import { Dashboard } from "./components/Dashboard";
 import {createServer} from 'miragejs'
-import ReactModal from "react-modal";
+import Modal from "react-modal";
 import { useState } from "react";
 
 createServer({
@@ -24,6 +24,9 @@ createServer({
     })
   }
 })
+
+Modal.setAppElement('#root')
+
 export function App() {
   const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] = useState(false)
 
@@ -37,12 +40,12 @@ export function App() {
 
   return (
     <ChakraProvider>
-      <Header onclick={handleOpenNewTransactionsModal} />
+      <Header onpenNewTransactionsModal={handleOpenNewTransactionsModal} />
       <Dashboard />
 
-      <ReactModal isOpen={isNewTransactionModalOpen} onRequestClose={handleCloseNewTransactionsModal}>
+      <Modal isOpen={isNewTransactionModalOpen} onRequestClose={handleCloseNewTransactionsModal}>
         <h2>Cadastrar nova Transaçao</h2>
-      </ReactModal>
+      </Modal>
 
       <GlobalStyle />
     </ChakraProvider>

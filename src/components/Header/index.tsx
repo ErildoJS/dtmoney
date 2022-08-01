@@ -5,16 +5,16 @@ import logoImg from '../../assets/logo.svg'
 import {Container, Content} from './styles'
 
 type HeaderProps = {
-  onclick: () => void
+  onpenNewTransactionsModal: () => void
 }
 
-export function Header({onclick}: HeaderProps) {
+export function Header({onpenNewTransactionsModal}: HeaderProps) {
   
   return (
     <Container>
       <Content>
       <img src={logoImg} alt="dt money" />
-      <button type='button' onClick={onclick}>
+      <button type='button' onClick={onpenNewTransactionsModal}>
         Nova Transação
       </button>
       </Content>
