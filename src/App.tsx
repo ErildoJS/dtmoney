@@ -5,6 +5,7 @@ import { Dashboard } from "./components/Dashboard";
 import {createServer} from 'miragejs'
 import Modal from "react-modal";
 import { useState } from "react";
+import { NewTransactionModal } from "./components/NewTransactionModal";
 
 createServer({
   routes() {
@@ -43,7 +44,7 @@ export function App() {
       <Header onpenNewTransactionsModal={handleOpenNewTransactionsModal} />
       <Dashboard />
 
-      
+      <NewTransactionModal isOpen={isNewTransactionModalOpen} onRequestClose={handleCloseNewTransactionsModal}/>
 
       <GlobalStyle />
     </ChakraProvider>
