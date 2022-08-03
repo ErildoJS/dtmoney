@@ -43,9 +43,7 @@ export function App() {
       <Header onpenNewTransactionsModal={handleOpenNewTransactionsModal} />
       <Dashboard />
 
-      <Modal isOpen={isNewTransactionModalOpen} onRequestClose={handleCloseNewTransactionsModal}>
-        <h2>Cadastrar nova Transaçao</h2>
-      </Modal>
+      
 
       <GlobalStyle />
     </ChakraProvider>
