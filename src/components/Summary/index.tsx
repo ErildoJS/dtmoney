@@ -6,6 +6,23 @@ import { TransactionsContext } from '../../TransactionsContext'
 import { Container } from './styles'
 
 export function Summary() {
+  const {transactions} = useContext(TransactionsContext)
+
+  const summary = transactions.reduce((acc, transaction) => {
+    if(transaction.type === 'deposit') {
+      acc.deposits = acc.deposits + transaction.amount
+      acc.total = acc.total + transaction.amount
+    }else {
+      acc.deposits = acc.deposits + transaction.amount
+      acc.withdraws = acc.withdraws - transaction.amount
+    }
+
+    return acc
+  }, {
+    deposits: 0,
+    withdraws: 0,
+    total: 0,
+  })
 
     return (
         <Container>
@@ -14,7 +31,12 @@ export function Summary() {
                     <p>Entradas</p>
                     <img src={incomeImg} alt="" />
                 </header>
-                <strong>kz 200,000</strong>
+                <strong>
+                {new Intl.NumberFormat('pt-AO', {
+                                style: 'currency',
+                                currency: 'KWZ'
+                    }).format(summary.deposits)}
+                </strong>
             </div>
 
             <div>
@@ -22,7 +44,12 @@ export function Summary() {
                     <p>Saidas</p>
                     <img src={outcomeImg} alt="Saidas" />
                 </header>
-                <strong>kz 50,000</strong>
+                <strong>
+                    {new Intl.NumberFormat('pt-AO', {
+                                style: 'currency',
+                                currency: 'KWZ'
+                    }).format(summary.withdraws)}
+                </strong>
             </div>
 
             <div className='highlight'>
@@ -30,7 +57,12 @@ export function Summary() {
                     <p>Total</p>
                     <img src={totalImg} alt="Total" />
                 </header>
-                <strong>kz 150,000</strong>
+                <strong>
+                {new Intl.NumberFormat('pt-AO', {
+                                style: 'currency',
+                                currency: 'KWZ'
+                    }).format(summary.total)}
+                </strong>
             </div>
         </Container>
     )
