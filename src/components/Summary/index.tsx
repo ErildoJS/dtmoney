@@ -1,4 +1,3 @@
-import { useContext } from 'react'
 import incomeImg from '../../assets/income.svg'
 import outcomeImg from '../../assets/outcome.svg'
 import totalImg from '../../assets/total.svg'
@@ -34,7 +33,7 @@ export function Summary() {
                 <strong>
                 {new Intl.NumberFormat('pt-AO', {
                                 style: 'currency',
-                                currency: 'KWZ'
+                                currency: 'Kwz'
                     }).format(summary.deposits)}
                 </strong>
             </div>
@@ -47,7 +46,7 @@ export function Summary() {
                 <strong>
                     {new Intl.NumberFormat('pt-AO', {
                                 style: 'currency',
-                                currency: 'KWZ'
+                                currency: 'Kwz'
                     }).format(summary.withdraws)}
                 </strong>
             </div>
@@ -60,7 +59,7 @@ export function Summary() {
                 <strong>
                 {new Intl.NumberFormat('pt-AO', {
                                 style: 'currency',
-                                currency: 'KWZ'
+                                currency: 'Kwz'
                     }).format(summary.total)}
                 </strong>
             </div>
